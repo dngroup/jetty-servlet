@@ -2,18 +2,11 @@ package net.viotech.jettyservlet;
 
 import android.util.Log;
 
-import com.enseirb.telecom.dngroup.dvd2c.CORSResponseFilter;
-import com.enseirb.telecom.dngroup.dvd2c.CliConfSingleton;
-import com.enseirb.telecom.dngroup.dvd2c.SecurityRequestFilter;
-import com.enseirb.telecom.dngroup.dvd2c.db.BoxRepositoryMongo;
-import com.enseirb.telecom.dngroup.dvd2c.service.BoxService;
-import com.enseirb.telecom.dngroup.dvd2c.service.BoxServiceImpl;
+
+
 
 import org.eclipse.jetty.server.Server;
-import org.glassfish.jersey.jettison.JettisonFeature;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
-import org.glassfish.jersey.media.multipart.MultiPartFeature;
-import org.glassfish.jersey.message.filtering.SecurityEntityFilteringFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import java.io.IOException;
@@ -40,30 +33,10 @@ public class JettyServerRunner {
     protected static Server startServer() throws IOException {
 
         ResourceConfig resources = new ResourceConfig();
-        resources.packages("com.enseirb.telecom.dngroup.dvd2c.endpoints");
-        resources.register(CORSResponseFilter.class);
-        resources.register(MultiPartFeature.class);
-        resources.register(JettisonFeature.class);
-        /**
-         * this two follow line is for security
-         */
-        resources.register(SecurityEntityFilteringFeature.class);
-        resources.register(SecurityRequestFilter.class);
-
-
-        // return GrizzlyServerFactory.createHttpServer(BASE_URI,
-        // resourceConfig);
-        Log.i("JettyServer", "Send information to the server central ...");
-        try {
-            BoxService boxManager = new BoxServiceImpl(new BoxRepositoryMongo("mediahome"));
-            boxManager.updateBox();
-            Log.i("JettyServer", "Sucess ");
-        } catch (ProcessingException e) {
-            Log.e("JettyServer", "Error for send information to the server central. Is running? " + e.getLocalizedMessage());
-        } catch (Exception e) {
-            Log.e("JettyServer", "Error for send information to the server central: " + e.getLocalizedMessage());
-
-        }
+        resources.packages("net.viotech.jettyservlet");
+        
+   
+ 
 
         return JettyHttpContainerFactory.createServer(getBaseURI(), resources);
     }
