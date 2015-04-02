@@ -1,5 +1,7 @@
 package net.viotech.jettyservlet;
 
+
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -20,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
 
         btnJetty = (Button) findViewById(R.id.button);
         btnJetty.setOnClickListener(new View.OnClickListener() {
-            @Override
+            
             public void onClick(View v) {
                 if (isRunning) {
                     stopServer();

@@ -5,10 +5,9 @@
 
 	<groupId>com.enseirb.telecom.dngroup.dvd2c</groupId>
 	<artifactId>dvd2c-box-android</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>apk</packaging>
 
-	<name>HelloFlashLight</name>
 	<repositories>
 		<repository>
 			<id>android-support</id>
@@ -41,38 +40,69 @@
 			<version>4.1.1.4</version>
 			<scope>provided</scope>
 		</dependency>
+
+
+
+
+
+
 		<dependency>
-			<groupId>com.android.support</groupId>
-			<artifactId>appcompat-v7</artifactId>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-appcompat</artifactId>
 			<version>${compatibility.version}</version>
-			<type>aar</type>
+			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>9.2.10.v20150310</version>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v7-gridlayout</artifactId>
+			<version>${compatibility.version}</version>
+			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-servlet</artifactId>
-			<version>9.2.10.v20150310</version>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v4</artifactId>
+			<version>${compatibility.version}</version>
+			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
+
+
 		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-util</artifactId>
-			<version>9.1.1.v20140108</version>
+			<groupId>android.support</groupId>
+			<artifactId>compatibility-v4</artifactId>
+			<version>${compatibility.version}</version>
+			<type>jar</type>
+			<scope>provided</scope>
 		</dependency>
+
+
+
+
+
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet-core</artifactId>
 
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.glassfish.jersey.bundles.repackaged</groupId>
+			<artifactId>jersey-guava</artifactId>
+
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-jetty-http</artifactId>
 
+		
 		</dependency>
+
+		
 
 	</dependencies>
 
